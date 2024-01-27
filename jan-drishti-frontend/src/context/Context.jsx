@@ -8,9 +8,10 @@ function Context(props) {
   const [defaultTheme, setTheme] = useState(true);
   const [userDetails, setUserDetails] = useState({});
   const [loading, setLoading] = useState(false)
+  const [news,setNews] = useState([]);
 
   return (
-    <JanDrishtiContext.Provider value={{userLogin, setUserLogin, defaultTheme, setTheme, userDetails, setUserDetails, loading, setLoading}}>
+    <JanDrishtiContext.Provider value={{news,setNews,userLogin, setUserLogin, defaultTheme, setTheme, userDetails, setUserDetails, loading, setLoading}}>
         {props.children}
         </JanDrishtiContext.Provider>
   );
