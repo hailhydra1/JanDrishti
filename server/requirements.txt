@@ -62,3 +62,5 @@ transformers
 torch
 scikit-learn
 Flask
+flask-cors
+
