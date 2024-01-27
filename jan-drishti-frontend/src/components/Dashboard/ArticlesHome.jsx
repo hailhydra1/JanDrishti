@@ -24,8 +24,7 @@ function ArticlesHome(){
 
 
     return(
-
-        
+      <>
         <Table className="w-unit-9xl max-h-unit-5xl" isStriped color="primary" selectionMode="single" >
         <TableHeader >
           <TableColumn className="text-xl">Article</TableColumn>
