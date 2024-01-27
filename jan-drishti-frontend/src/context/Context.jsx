@@ -15,7 +15,7 @@ function Context(props) {
   return (
     <JanDrishtiContext.Provider value={{newsURL, setNewsURL,isNewsSelected,setNewsSelected,news,setNews,userLogin, setUserLogin, defaultTheme, setTheme, userDetails, setUserDetails, loading, setLoading}}>
         {props.children}
-        </JanDrishtiContext.Provider>
+    </JanDrishtiContext.Provider>
   );
 }
 

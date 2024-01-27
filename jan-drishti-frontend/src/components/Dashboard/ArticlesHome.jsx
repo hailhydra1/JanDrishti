@@ -11,7 +11,6 @@ function ArticlesHome(){
   const getdata = async() => {
     try {
       const list= await axios.get("http://localhost:5000/news") 
-      console.log(list.data);
       setNews(list.data);
     } catch (error) {
       console.log(error);

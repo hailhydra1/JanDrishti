@@ -89,7 +89,7 @@ class Predictor():
 predictor = Predictor()
 
 
-def get_top_news(api_key, country='in', category='general' , page_size=5):
+def get_top_news(api_key, country='in', category='general' , page_size=100):
     endpoint = 'https://newsapi.org/v2/top-headlines'
     params = {
         'country': country,
@@ -129,7 +129,7 @@ def get_top_news(api_key, country='in', category='general' , page_size=5):
 @app.route("/news")
 def news():
     api_key = "62f83385e0304accba970b1a0ac64296"  # Replace with your actual API key
-    news_articles = get_top_news(api_key, country='in', category='general', page_size=60)
+    news_articles = get_top_news(api_key, country='in', category='general', page_size=100)
 
     results=[]
 
