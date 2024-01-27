@@ -15,6 +15,8 @@ function DashboardHome() {
           <SentimentCard />
         </div>
         {/* Lower Div */}
+        {/* Yessir */}
+        {/* Chekc */}
         <div>
           <Card className="items-center">
             <div>
