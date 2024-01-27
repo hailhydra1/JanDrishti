@@ -11,10 +11,9 @@ function DashboardHome() {
       <div className="flex flex-col gap-10">
         {/* Upper Div */}
         <div className="flex flex-row  gap-5">
-          <ArticlesHome />
+          <ArticlesHome  />
           <SentimentCard />
         </div>
-        {/* Lower Div */}
         <div>
           <Card className="items-center">
             <div>
