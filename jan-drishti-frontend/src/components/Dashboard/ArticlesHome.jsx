@@ -1,17 +1,18 @@
-import react, {useState, useEffect} from "react";
+import react, {useState, useEffect, useContext} from "react";
 import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, Button} from "@nextui-org/react";
+import { JanDrishtiContext } from "../../context/Context";
 import axios from "axios"
 
 
 function ArticlesHome(){
-  const [news,setNews] = useState([]);
+
+  const{news,setNews} = useContext(JanDrishtiContext)
 
   const getdata = async() => {
     try {
       const list= await axios.get("http://localhost:5000/news") 
       console.log(list.data);
       setNews(list.data);
-
     } catch (error) {
       console.log(error);
     }
