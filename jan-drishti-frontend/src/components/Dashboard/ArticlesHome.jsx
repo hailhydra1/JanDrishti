@@ -6,7 +6,7 @@ import axios from "axios"
 
 function ArticlesHome(){
 
-  const{news,setNews} = useContext(JanDrishtiContext)
+  const{newsURL, setNewsURL,isNewsSelected,setNewsSelected,news,setNews} = useContext(JanDrishtiContext)
 
   const getdata = async() => {
     try {
@@ -21,6 +21,10 @@ function ArticlesHome(){
     getdata(); // Fetch data when component mounts
   }, []);
 
+  function handleClick(url){
+    setNewsURL(url)
+    setNewsSelected(true)
+  }
 
     return(
       <>
@@ -31,8 +35,8 @@ function ArticlesHome(){
           {/* <TableColumn className="text-xl">View</TableColumn> */}
         </TableHeader>
         <TableBody>
-        {news?.map((item,key)=>(
-          <TableRow key={key}>
+        {news.map((item,index)=>(
+          <TableRow onClick={()=>{handleClick(item.url)}} key={item.index}>
           <TableCell>{item.description}</TableCell>
           <TableCell>{item.result}</TableCell>
           {/* <TableCell>Active</TableCell> */}

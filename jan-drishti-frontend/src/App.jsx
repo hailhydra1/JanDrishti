@@ -10,6 +10,9 @@ import ArticlesHome from "./components/Dashboard/ArticlesHome";
 import SearchResults from "./components/Search/SearchResults";
 import DropResults from "./components/Dropdown/DropResults";
 
+import Chatbot from "./components/Dashboard/Chatbot/Chatbot";
+
+
 function App() {
   const navigate = useNavigate();
 
@@ -21,6 +24,7 @@ function App() {
       {/* <NavbarComponent /> */}
       {/* {userLogin ? <Logout /> : <Login />} */}
       <Route path="" element={<Dashboard />} />
+      <Route path="/chat-bot" element={<Chatbot />} />
       <Route path="/articleshome" element={<ArticlesHome />} />
       <Route path="/searchresults" element={<SearchResults />} />
       <Route path="/dropresults" element={<DropResults />} />

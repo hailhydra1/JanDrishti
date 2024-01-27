@@ -13,6 +13,7 @@ import { Moon, Sun } from "lucide-react";
 import React, { useContext } from "react";
 import ToggleTheme from "../ToggleTheme";
 import { JanDrishtiContext } from "../../context/Context";
+import Logout from "../Logout";
 
 function DashboardNavbar() {
 
@@ -40,8 +41,9 @@ function DashboardNavbar() {
               <p className="font-semibold">{name}</p>
               <p className="font-semibold">{email}</p>
             </DropdownItem>
-            <DropdownItem key="logout" color="danger">
-              Log Out
+            {/* <DropdownItem key="logout" color="danger"> */}
+            <DropdownItem>
+              <Logout />
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>
