@@ -1,8 +1,39 @@
-import React from "react";
-import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell} from "@nextui-org/react";
+import react, {useState, useEffect} from "react";
+import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, Button} from "@nextui-org/react";
+import axios from "axios"
+
 
 function ArticlesHome(){
+  const [news,setNews] = useState([]);
+
+  const getdata = async() => {
+    try {
+      const list= await axios.get("http://localhost:5000/news") 
+      console.log(list.data);
+      setNews(list.data);
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    getdata(); // Fetch data when component mounts
+  }, []);
+
+
     return(
+      <>
+      {/* {news.map((item, index) => (
+        <div key={index}>
+          <p>{item.description}</p>
+          <p>{item.result}</p>
+          <a href={item.url} target="_blank" rel="noopener noreferrer">
+            Link
+          </a>
+        </div>
+      ))} */}
+
         <Table className="w-unit-9xl" isStriped color="primary" selectionMode="single" >
         <TableHeader >
           <TableColumn className="text-xl">Article</TableColumn>
@@ -10,28 +41,18 @@ function ArticlesHome(){
           {/* <TableColumn className="text-xl">View</TableColumn> */}
         </TableHeader>
         <TableBody>
-          <TableRow key="1">
-            <TableCell>Article 1</TableCell>
-            <TableCell>Positive</TableCell>
-            {/* <TableCell>Active</TableCell> */}
+        {news.map((item,index)=>(
+          <TableRow key={item.index}>
+          <TableCell>{item.description}</TableCell>
+          <TableCell>{item.result}</TableCell>
+          {/* <TableCell>Active</TableCell> */}
           </TableRow>
-          <TableRow key="2">
-            <TableCell>Zoey Lang</TableCell>
-            <TableCell>Negative</TableCell>
-            {/* <TableCell>Paused</TableCell> */}
-          </TableRow>
-          <TableRow key="3">
-            <TableCell>Jane Fisher</TableCell>
-            <TableCell>Negative</TableCell>
-            {/* <TableCell>Active</TableCell> */}
-          </TableRow>
-          <TableRow key="4">
-            <TableCell>William Howard</TableCell>
-            <TableCell>Community Manager</TableCell>
-            {/* <TableCell>Vacation</TableCell> */}
-          </TableRow>
+        ))}
+          
+
         </TableBody>
       </Table>
+      </>
     )
 }
 
