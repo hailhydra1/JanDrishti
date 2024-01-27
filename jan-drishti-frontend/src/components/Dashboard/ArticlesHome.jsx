@@ -34,7 +34,7 @@ function ArticlesHome(){
         </div>
       ))} */}
 
-        <Table className="w-unit-9xl" isStriped color="primary" selectionMode="single" >
+        <Table className="w-unit-9xl h-unit-5xl" isStriped color="primary" selectionMode="single" >
         <TableHeader >
           <TableColumn className="text-xl">Article</TableColumn>
           <TableColumn className="text-xl" >Sentiment</TableColumn>
