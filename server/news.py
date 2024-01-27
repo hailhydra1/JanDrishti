@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request, jsonify
 from flask_cors import CORS
 import requests
 from bs4 import BeautifulSoup
@@ -40,6 +40,26 @@ def scrape_visible_text_from_url(url):
         print(f"Error occurred while scraping the data: {e}")
         return None
     
+@app.route("/scrape", methods=["POST"])
+def scrape():
+    try:
+        # Get the URL from the POST request
+        url = request.json.get("url")
+
+        if not url:
+            return jsonify({"error": "URL parameter is missing"}), 400
+
+        # Call the scrape_visible_text_from_url function
+        scraped_text = scrape_visible_text_from_url(url)
+
+        if scraped_text:
+            return jsonify({"scraped_text": scraped_text})
+        else:
+            return jsonify({"error": "Failed to scrape visible text from the URL"}), 500
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
