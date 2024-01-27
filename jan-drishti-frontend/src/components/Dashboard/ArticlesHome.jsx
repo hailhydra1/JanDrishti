@@ -11,7 +11,6 @@ function ArticlesHome(){
   const getdata = async() => {
     try {
       const list= await axios.get("http://localhost:5000/news") 
-      console.log(list.data);
       setNews(list.data);
     } catch (error) {
       console.log(error);
@@ -32,8 +31,8 @@ function ArticlesHome(){
           {/* <TableColumn className="text-xl">View</TableColumn> */}
         </TableHeader>
         <TableBody>
-        {news.map((item,index)=>(
-          <TableRow key={item.index}>
+        {news?.map((item,key)=>(
+          <TableRow key={key}>
           <TableCell>{item.description}</TableCell>
           <TableCell>{item.result}</TableCell>
           {/* <TableCell>Active</TableCell> */}

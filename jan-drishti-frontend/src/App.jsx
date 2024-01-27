@@ -7,6 +7,8 @@ import Dashboard from "./components/Dashboard";
 import {BrowserRouter, useNavigate, Route, Routes} from 'react-router-dom';
 import { NextUIProvider } from "@nextui-org/react";
 import ArticlesHome from "./components/Dashboard/ArticlesHome";
+import SearchResults from "./components/Search/SearchResults";
+import DropResults from "./components/Dropdown/DropResults";
 
 function App() {
   const navigate = useNavigate();
@@ -20,6 +22,8 @@ function App() {
       {/* {userLogin ? <Logout /> : <Login />} */}
       <Route path="" element={<Dashboard />} />
       <Route path="/articleshome" element={<ArticlesHome />} />
+      <Route path="/searchresults" element={<SearchResults />} />
+      <Route path="/dropresults" element={<DropResults />} />
     </Routes>
     </NextUIProvider>
     </div>
