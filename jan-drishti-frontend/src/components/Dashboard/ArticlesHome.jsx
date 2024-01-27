@@ -25,17 +25,7 @@ function ArticlesHome(){
 
     return(
       <>
-      {/* {news.map((item, index) => (
-        <div key={index}>
-          <p>{item.description}</p>
-          <p>{item.result}</p>
-          <a href={item.url} target="_blank" rel="noopener noreferrer">
-            Link
-          </a>
-        </div>
-      ))} */}
-
-        <Table className="w-unit-9xl h-unit-5xl" isStriped color="primary" selectionMode="single" >
+        <Table className="w-unit-9xl max-h-unit-5xl" isStriped color="primary" selectionMode="single" >
         <TableHeader >
           <TableColumn className="text-xl">Article</TableColumn>
           <TableColumn className="text-xl" >Sentiment</TableColumn>
