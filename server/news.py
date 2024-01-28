@@ -11,7 +11,7 @@ from transformers import AutoModelForSequenceClassification, AutoTokenizer
 app = Flask(__name__)
 CORS(app)
 
-# Function to scrape only visible text from the given URLlll
+
 def scrape_visible_text_from_url(url):
     try:
         response = requests.get(url)
@@ -39,7 +39,8 @@ def scrape_visible_text_from_url(url):
     except Exception as e:
         print(f"Error occurred while scraping the data: {e}")
         return None
-
+    
+@app.route("/scrape", methods=["POST"])
 def scrape():
     try:
         # Get the URL from the POST request
