@@ -22,7 +22,7 @@ function Sidebar() {
         <Button className="text-sm mb-5" color="default" variant="flat" startContent={<Sparkles/>}>Article Analysis</Button>
         <Button className="text-sm mb-5" color="default" variant="flat" startContent={<Newspaper/>}>Weekly Report</Button>
         <Button className="text-sm mb-5" color="default" variant="flat" startContent={<Languages/>}>Regional Translation</Button>
-        <Button className="text-sm mb-5" color="default" variant="flat" startContent={<ScanSearch/>}>Article Scan</Button>
+        <Link href="/graphs"><Button className="text-sm mb-5" color="default" variant="flat" startContent={<ScanSearch/>}>Graphs</Button></Link>
         <Button className="text-sm mb-5" color="default" variant="flat" startContent={<Twitter  />}>Tweets</Button>
       </div>
     </div>
