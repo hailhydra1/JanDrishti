@@ -3,9 +3,12 @@ import { JanDrishtiContext } from "../context/Context";
 import {auth, provider} from "../../controllers/firebaseConfig"
 import { signInWithPopup } from "firebase/auth";
 import { Button } from "@nextui-org/react";
+import { useNavigate, redirect } from "react-router-dom";
+
 
 
 function Login(){
+    const navigate = useNavigate();
     const {setUserLogin, setUserDetails} = useContext(JanDrishtiContext)
 
     async function handleClick(){
@@ -22,6 +25,8 @@ function Login(){
             setUserLogin(true);
         } catch (error) {
             console.log(error);
+        } finally{
+            navigate('/dashboard')
         }
         
     }

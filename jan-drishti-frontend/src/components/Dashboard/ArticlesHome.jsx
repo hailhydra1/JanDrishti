@@ -10,7 +10,7 @@ function ArticlesHome(){
 
   const getdata = async() => {
     try {
-      const list= await axios.get("http://localhost:5000/news") 
+      const list= await axios.get("http://localhost:5000/") 
       setNews(list.data);
     } catch (error) {
       console.log(error);
@@ -28,7 +28,7 @@ function ArticlesHome(){
 
     return(
       <>
-        <Table className="w-unit-9xl max-h-unit-5xl" isStriped color="primary" selectionMode="single" >
+        <Table className="w-unit-10xl max-h-unit-8xl" isStriped color="primary" selectionMode="single" >
         <TableHeader >
           <TableColumn className="text-xl">Article</TableColumn>
           <TableColumn className="text-xl" >Sentiment</TableColumn>
@@ -37,13 +37,11 @@ function ArticlesHome(){
         <TableBody>
         {news.map((item,index)=>(
           <TableRow onClick={()=>{handleClick(item.url)}} key={item.index}>
-          <TableCell>{item.description}</TableCell>
-          <TableCell>{item.result}</TableCell>
+          <TableCell>{item.title}</TableCell>
+          <TableCell>{item.result.split(': ')[1]}</TableCell>
           {/* <TableCell>Active</TableCell> */}
           </TableRow>
         ))}
-          
-
         </TableBody>
       </Table>
       </>
