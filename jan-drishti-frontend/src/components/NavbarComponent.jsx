@@ -11,6 +11,7 @@ import { IoIosPeople } from "react-icons/io";
 import { Link, Button } from "@nextui-org/react";
 import React, { useState } from "react";
 import Login from "./Login";
+import ToggleTheme from "./ToggleTheme";
 
 function NavbarComponent() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -44,6 +45,9 @@ function NavbarComponent() {
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
+        <NavbarItem>
+          <ToggleTheme></ToggleTheme>
+        </NavbarItem>
         <NavbarItem>
           <Login></Login>
         </NavbarItem>

@@ -6,10 +6,12 @@ import {  useNavigate } from "react-router-dom";
 import axios from "axios";
 
 export default function App() {
-    const api_key = "62f83385e0304accba970b1a0ac64296"
+    const api_key = "54ab9e22d09a4d03b77f3af1e64e33ba"
     const [value, setValue] = React.useState("");
-    const{setNews} = useContext(JanDrishtiContext)
+    const{setNews,search,setSearch} = useContext(JanDrishtiContext)
     const navigate = useNavigate()
+
+    
 
     const handleKeyDown = async(event) => {
         if (event.key === "Enter") {
@@ -18,7 +20,8 @@ export default function App() {
             const list= await axios.get(`https://newsapi.org/v2/everything?q=${value}&apiKey=${api_key}`); 
             // console.log(list.data.articles);
             setNews(list.data.articles);
-            navigate("/SearchResults");
+            setSearch(false)
+            // navigate("/SearchResults");
           } catch (error) {
             console.log(error);
           }

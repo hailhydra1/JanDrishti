@@ -7,11 +7,9 @@ import Dashboard from "./components/Dashboard";
 import {BrowserRouter, useNavigate, Route, Routes} from 'react-router-dom';
 import { NextUIProvider } from "@nextui-org/react";
 import ArticlesHome from "./components/Dashboard/ArticlesHome";
-import SearchResults from "./components/Search/SearchResults";
-import DropResults from "./components/Dropdown/DropResults";
-
 import Chatbot from "./components/Dashboard/Chatbot/Chatbot";
-
+import Landing from "./components/Landing";
+import './App.css';
 
 function App() {
   const navigate = useNavigate();
@@ -20,14 +18,16 @@ function App() {
   return (
     <div className={(!defaultTheme ? "light" : "dark " ) + "text-foreground bg-background font-inter w-full h-screen"}>
     <NextUIProvider navigate={navigate}>
+      {/* {userLogin ? <Dashboard /> : <Landing />} */}
       <Routes>
-      {/* <NavbarComponent /> */}
+      {/* <NavbarComponen t /> */}
       {/* {userLogin ? <Logout /> : <Login />} */}
-      <Route path="" element={<Dashboard />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/" element={<Landing />} />
       <Route path="/chat-bot" element={<Chatbot />} />
       <Route path="/articleshome" element={<ArticlesHome />} />
-      <Route path="/searchresults" element={<SearchResults />} />
-      <Route path="/dropresults" element={<DropResults />} />
+      {/* <Route path="/searchresults" element={<SearchResults />} />
+      <Route path="/dropresults" element={<DropResults />} /> */}
     </Routes>
     </NextUIProvider>
     </div>

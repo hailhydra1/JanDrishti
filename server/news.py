@@ -39,8 +39,7 @@ def scrape_visible_text_from_url(url):
     except Exception as e:
         print(f"Error occurred while scraping the data: {e}")
         return None
-    
-@app.route("/scrape", methods=["POST"])
+
 def scrape():
     try:
         # Get the URL from the POST request
@@ -94,7 +93,6 @@ def get_top_news(api_key, country='in', category='general' , page_size=100):
     params = {
         'country': country,
         'category': category,
-        'q':'',
         'pageSize': page_size,
         'apiKey': api_key
     }
@@ -126,18 +124,18 @@ def get_top_news(api_key, country='in', category='general' , page_size=100):
 
 #     return filtered_news
 
-@app.route("/news")
+@app.route("/")
 def news():
-    api_key = "62f83385e0304accba970b1a0ac64296"  # Replace with your actual API key
+    api_key = "54ab9e22d09a4d03b77f3af1e64e33ba"  # Replace with your actual API key
     news_articles = get_top_news(api_key, country='in', category='general', page_size=100)
 
     results=[]
-
     for index, news in enumerate(news_articles, start=1):
     
         result = predictor.predict(str(news['description']))
         news_data = {
         'index':index,
+        'title':news['title'],
         'description': news['description'],
         'url': news['url'],
         'result': result,

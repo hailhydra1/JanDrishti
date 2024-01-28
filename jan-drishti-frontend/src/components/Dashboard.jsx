@@ -9,8 +9,8 @@ import Chatbot from "./Dashboard/Chatbot/Chatbot";
 function Dashboard() {
   const {isNewsSelected} = useContext(JanDrishtiContext)
   return (
-    <div className="w-full h-screen flex flex-row">
-      <Sidebar />
+    <div className="w-full h-full flex flex-row bg-background">
+        <Sidebar />
       <div className="w-full h-full">
         <DashboardNavbar />
         {isNewsSelected ? <Chatbot /> : <DashboardHome />}

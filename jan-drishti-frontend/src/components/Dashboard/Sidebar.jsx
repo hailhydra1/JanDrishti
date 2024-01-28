@@ -1,4 +1,4 @@
-import { Button, Card, CardHeader, Divider } from "@nextui-org/react";
+import { Button, Card, CardHeader, Divider, Link } from "@nextui-org/react";
 import { Languages, LayoutDashboard, Newspaper, ScanSearch, Sparkles, Twitter } from "lucide-react";
 import React from "react";
 
@@ -6,14 +6,15 @@ import React from "react";
 
 function Sidebar() {
   return (
-    <div className="flex flex-col w-1/5 h-screen overflow-scroll ">
+  
+    <div className="flex flex-col w-1/5  overflow-scroll ">
       <div className="p-5 text-left">
         <h1 className="font-semibold text-3xl ">Dashboard</h1>
         <p className="font-light text-sm">Powered by Jan Drishti</p>
       </div>
       <Divider />
       <div className="p-5">
-        <Button className="text-md" color="primary" variant="ghost" startContent={<LayoutDashboard/>}>Home</Button>
+        <Link href="/dashboard"><Button className="text-md" color="primary" variant="ghost" startContent={<LayoutDashboard/>}>Home</Button></Link>
       </div>
       <Divider />
       <div className="p-5">

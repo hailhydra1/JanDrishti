@@ -7,18 +7,19 @@ import axios from 'axios';
 const Drop = () => {
 
   const [value, setValue]=useState("")
-  const{setNews} = useContext(JanDrishtiContext)
+  const{setNews,search,setSearch} = useContext(JanDrishtiContext)
   const navigate = useNavigate()
 
-  const api_key = "62f83385e0304accba970b1a0ac64296"
+  const api_key = "54ab9e22d09a4d03b77f3af1e64e33ba"
 
   const handleKeyDown = async(key) => {
     console.log(key)
       try {
         const list= await axios.get(`https://newsapi.org/v2/top-headlines?country=in&category=${key}&apiKey=${api_key}`); 
         setNews(list.data.articles);
+        setSearch(false)
         console.log(list.data);
-        navigate("/dropresults");
+        // navigate("/dropresults");
       } catch (error) {
         console.log(error);
       }
